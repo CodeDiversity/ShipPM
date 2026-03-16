@@ -1,7 +1,7 @@
 {
-  "name": "ship-agent",
+  "name": "@mtrew2015/ship-pm",
   "version": "1.0.0",
-  "description": "Ship Agent — an opinionated meta-prompting framework for shipping products. Works alongside autonomous coding agents.",
+  "description": "PM Assistant — an opinionated meta-prompting framework for shipping products. Works alongside autonomous coding agents.",
   "type": "module",
   "main": "bin/install.mjs",
   "engines": {
@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/ship-agent.git"
+    "url": "git+https://github.com/your-username/ship-pm.git"
   },
   "scripts": {
     "lint": "alex ./**/*.md"
   },
   "bin": {
-    "ship-agent": "./bin/install.mjs"
+    "ship-pm": "./bin/install.mjs"
   },
   "files": [
     "bin/",
-    "ship-agent/"
+    "ship-pm/"
   ],
   "keywords": [
     "pm",
@@ -32,7 +32,7 @@
     "mvp",
     "scope"
   ],
-  "author": "Ship Agent Contributors",
+  "author": "PM Assistant Contributors",
   "license": "MIT",
   "devDependencies": {
     "alex": "^11.0.1"
