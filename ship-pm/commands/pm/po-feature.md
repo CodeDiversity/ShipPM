@@ -10,17 +10,15 @@ allowed-tools:
 ---
 
 <objective>
-Generate focused Product Owner documentation for a specific Feature. This creates a dedicated structure for the PO to track current capabilities, desired enhancements, and deferred ideas for the given feature.
+Generate focused Product Owner documentation for a specific Feature. This creates a consolidated "Epic-like" state file in `.po/features/` to track current capabilities, upcoming work, and deferred ideas for the given feature.
 
-**Reads:** `.pm/ROADMAP.md`, `.pm/features/`
-**Creates:** `.pm/features/[padded-Feature]-[slug]/po/current.md`, `po/desired.md`, `po/deferred.md` (if they do not already exist)
+**Reads:** `.pm/ROADMAP.md`, `.po/features/`
+**Creates:** `.po/features/[padded-Feature]-[slug].md` (if it does not already exist)
 </objective>
 
 <execution_context>
 @~/.claude/ship-pm/workflows/po-feature.md
-@~/.claude/ship-pm/templates/po-feature-current.md
-@~/.claude/ship-pm/templates/po-feature-desired.md
-@~/.claude/ship-pm/templates/po-feature-deferred.md
+@~/.claude/ship-pm/templates/po-feature.md
 </execution_context>
 
 <context>

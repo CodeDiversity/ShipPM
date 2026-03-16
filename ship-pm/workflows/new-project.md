@@ -84,7 +84,7 @@ Loop until "Create PROJECT.md" selected.
 Create `.pm/` directory structure:
 
 ```bash
-mkdir -p .pm/features .pm/briefs .pm/reviews .pm/audits
+mkdir -p .po/features .pm/briefs .pm/reviews .pm/audits
 ```
 
 Synthesize all gathered context into `.pm/PROJECT.md` using the template from `@~/.claude/ship-pm/templates/project.md`.

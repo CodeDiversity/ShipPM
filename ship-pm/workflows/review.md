@@ -28,7 +28,7 @@ mkdir -p .pm/reviews
 Read:
 - `.pm/ROADMAP.md` — To get the Feature definition
 - `.pm/SCOPE.md` — To cross-reference any linked requirements
-- `.pm/features/` — Optional: Read feature specs linked to this Feature.
+- `.po/features/` — Optional: Read feature specs linked to this Feature.
 - `.pm/briefs/${PADDED_FEATURE}-*/*-BRIEF.md` — Optional: Read the PM brief to understand what was requested.
 
 ## 3. Codebase Inspection (Trust but Verify)
@@ -66,6 +66,12 @@ Display:
  [Include the "Gaps & Fixes" section here if applicable]
 ```
 
-Next step suggestion:
-**If PASS:** "Ready for next Feature. Run `/pm:next-feature`"
-**If FAIL:** "Fix gaps using your coding agent, or manually edit the code."
+## 6. Update Feature State
+
+If the review result is **PASS** or **PASS WITH WARNINGS**:
+1. Identify the corresponding file in `.po/features/[padded-Feature]-[slug].md`.
+2. Update the **Status** to "Implemented" (for PASS) or "Partially Implemented" (for PASS WITH WARNINGS).
+3. Move the items reviewed from **Next (Upcoming)** to **Implemented ✅**.
+4. Update the **Last Updated** timestamp.
+
+This closes the loop between "building" and "done" in the PO's view.

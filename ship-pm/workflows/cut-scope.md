@@ -50,6 +50,16 @@ For each item to cut:
 1. Remove from "In Scope" section
 2. Add to "Later (Post-MVP)" section with rationale: "— Cut to accelerate launch"
 
+## 4b. Update PO Feature State Files
+
+For each cut item:
+1. Identify the corresponding file in `.po/features/[padded-Feature]-[slug].md`.
+2. Move the item from **Next (Upcoming)** or **Nice to Have (Desired)** to **Deferred (Cuts) ⏸️**.
+3. Add the reason for the cut (e.g., "Cut to accelerate launch").
+4. Update the **Last Updated** timestamp.
+
+This ensures each "Epic" file reflects the updated scope.
+
 ## 5. Log Decision
 
 Append to `.pm/DECISIONS.md`:

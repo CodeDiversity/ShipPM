@@ -106,6 +106,18 @@ Organize by capability area, not by file structure:
 - **[Feature name]** — [found in codebase but not in scope]
 ```
 
+## 5b. Update PO Feature State Files
+
+For each feature in `.po/features/*.md`:
+1. Read the file to understand its current state.
+2. Cross-reference with the codebase scan results.
+3. Update the **Status** field (e.g., mark as "Implemented" or "Partially Implemented").
+4. Move successfully implemented items from **Next (Upcoming)** or **Nice to Have (Desired)** to the **Implemented ✅** section.
+5. If new "Nice to Have" items were discovered or implemented, update the file accordingly.
+6. Update the **Last Updated** timestamp.
+
+This ensures each "Epic" file remains the source of truth for its specific feature.
+
 ## 6. Update STATE.md
 
 Update `.pm/STATE.md` with:

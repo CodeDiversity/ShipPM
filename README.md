@@ -115,7 +115,7 @@ Each command references workflows, which reference agents and references. The co
 
 ## Output
 
-All PM output lives in `.pm/` in your project:
+All PM output lives in `.pm/` and `.po/` in your project:
 
 ```
 .pm/
@@ -124,13 +124,15 @@ All PM output lives in `.pm/` in your project:
 ├── ROADMAP.md              # Roadmap concepts
 ├── DECISIONS.md            # Decision log
 ├── STATE.md                # Project state
-├── features/               # Detailed feature specs
 ├── briefs/                 # Constraints for coding agents
 ├── reviews/                # Work reviews
 └── audits/                 # Launch audits
+
+.po/
+└── features/               # Detailed feature specs and state
 ```
 
-*Note: All PM Assistant files live safely in `.pm/` to isolate them from your coding agent's execution layer.*
+*Note: All PM Assistant files live safely in `.pm/` and `.po/` to isolate them from your coding agent's execution layer.*
 
 ## Contributing
 

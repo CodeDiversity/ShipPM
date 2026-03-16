@@ -10,17 +10,17 @@ allowed-tools:
 ---
 
 <objective>
-Act as a PM pairing with the user to flesh out a specific feature idea. Use questioning techniques to define the problem, happy path, edge cases, and scope cuts. Generate a feature spec.
+Act as a PM pairing with the user to flesh out a specific feature idea. Use questioning techniques to define the problem, happy path, edge cases, and scope cuts. Generate a consolidated "Epic-like" feature state file.
 
 **Reads:** `.pm/PROJECT.md`, `.pm/SCOPE.md`
-**Creates:** `.pm/features/[feature-name].md`
+**Creates:** `.po/features/[feature-name].md`
 </objective>
 
 <execution_context>
 @~/.claude/ship-pm/workflows/refine.md
 @~/.claude/ship-pm/references/questioning.md
 @~/.claude/ship-pm/agents/pm-scoper.md
-@~/.claude/ship-pm/templates/feature-spec.md
+@~/.claude/ship-pm/templates/po-feature.md
 </execution_context>
 
 <context>

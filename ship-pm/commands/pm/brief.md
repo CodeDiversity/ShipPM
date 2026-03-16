@@ -13,7 +13,7 @@ allowed-tools:
 <objective>
 Transform a high-level ROADMAP Feature into an actionable `-BRIEF.md` file that an execution agent can load natively. This acts as the formal design and engineering handoff from the PM to the Execution Agent.
 
-**Reads:** `.pm/ROADMAP.md`, `.pm/PROJECT.md`, `.pm/SCOPE.md`, `.pm/features/`
+**Reads:** `.pm/ROADMAP.md`, `.pm/PROJECT.md`, `.pm/SCOPE.md`, `.po/features/`
 **Creates:** `.pm/briefs/[padded-Feature]-[slug]/[padded-Feature]-BRIEF.md`
 
 **After this command:** Run your execution agent to plan the given Feature.

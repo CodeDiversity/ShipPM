@@ -6,11 +6,11 @@
 
 Read `.pm/ROADMAP.md` and verify the Feature exists. Keep track of its name/slug.
 
-Identify the feature's documentation directory, which is `.pm/features/[padded-Feature]-[slug]/`.
-If the directory does not exist, the feature hasn't been properly scoped yet.
+Identify the feature's documentation directory, which is `.po/features/[slug].md`.
+If the file does not exist, the feature hasn't been properly scoped yet.
 
 ```bash
-ls -d .pm/features/* 2>/dev/null
+ls .po/features/*.md 2>/dev/null
 ```
 
 If it does not exist:
@@ -21,22 +21,20 @@ Exit.
 
 ## 2. Directory Creation
 
-Create the `po` subdirectory for the target feature if it doesn't already exist.
+Create the `.po/features` directory if it doesn't already exist.
 
 ```bash
-mkdir -p .pm/features/[padded-Feature]-[slug]/po
+mkdir -p .po/features
 ```
 
-## 3. Generate Core Files
+## 3. Generate Core File
 
-Check if the following files exist. If they do not, create them using their respective templates. Pre-fill the `[Feature Name]` based on the roadmap.
+Check if the following file exists. If it does not, create it using the template. Pre-fill the `[Feature Name]` based on the roadmap.
 
-**Files to create:**
-- `.pm/features/[padded-Feature]-[slug]/po/current.md` (Template: `@~/.claude/ship-pm/templates/po-feature-current.md`)
-- `.pm/features/[padded-Feature]-[slug]/po/desired.md` (Template: `@~/.claude/ship-pm/templates/po-feature-desired.md`)
-- `.pm/features/[padded-Feature]-[slug]/po/deferred.md` (Template: `@~/.claude/ship-pm/templates/po-feature-deferred.md`)
+**File to create:**
+- `.po/features/[padded-Feature]-[slug].md` (Template: `@~/.claude/ship-pm/templates/po-feature.md`)
 
-If the files already exist, do not overwrite them. Instead, read them and offer to summarize or append new information.
+If the file already exists, do not overwrite it. Instead, read it and offer to summarize or append new information.
 
 ## 4. Done
 
@@ -44,13 +42,11 @@ Display summary:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► PO FEATURE DOCS INITIALIZED
+ PM ► PO FEATURE STATE INITIALIZED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Created/Updated for Feature $ARGUMENTS:
-   .pm/features/.../po/current.md
-   .pm/features/.../po/desired.md
-   .pm/features/.../po/deferred.md
+   .po/features/[padded-Feature]-[slug].md
 
- Next: The PO should review and populate these files as the feature matures.
+ Next: The PO should review and update this "Epic" state file as the feature matures.
 ```

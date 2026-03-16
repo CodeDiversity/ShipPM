@@ -8,9 +8,9 @@ ls .pm/PROJECT.md 2>/dev/null
 ```
 **If not found:** Exit with "Error: No project found. Run `/pm:new-project` first."
 
-Ensure the `.pm/features/` directory exists:
+Ensure the `.po/features/` directory exists:
 ```bash
-mkdir -p .pm/features
+mkdir -p .po/features
 ```
 
 ## 2. Load Context
@@ -57,8 +57,8 @@ Keep asking questions (max 3-4 turns) until you have a clear picture of:
 Once you have enough context, say:
 > "Perfect. I have enough context. Drafting the feature spec..."
 
-Use the template at `@~/.claude/ship-pm/templates/feature-spec.md` to write the file to:
-`.pm/features/[feature-name-slugized].md`
+Use the template at `@~/.claude/ship-pm/templates/po-feature.md` to write the file to:
+`.po/features/[feature-name-slugized].md`
 
 ## 5. Review and Next Steps
 
@@ -68,7 +68,7 @@ Display:
  PM ► FEATURE SPEC CREATED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- Wrote: .pm/features/[feature].md
+ Wrote: .po/features/[feature].md
 
  Summary:
  - Core: [1 sentence summary of happy path]
