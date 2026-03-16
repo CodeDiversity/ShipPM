@@ -34,10 +34,12 @@ Verify:
 ```
 /pm:new-project [--auto]     Initialize project through questioning
 /pm:scope [--regen]          Generate MVP scope from project
+/pm:refine [idea]            Conversational refinement of a feature idea
 /pm:next-feature             Append the next highest priority feature to ROADMAP
+/pm:po-feature <id>          Initialize/update Product Owner "Epic" state
 /pm:brief <feature-id>       Create coding-agent brief from feature
 /pm:review <feature-id>      Review work against acceptance criteria
-/pm:sync                     Sync roadmap state from codebase
+/pm:sync                     Sync roadmap state from codebase & GSD phases
 /pm:audit                    Scan codebase for gaps and tech debt
 /pm:retro <feature-id>       Post-feature retrospective
 /pm:ship-check               Run launch readiness audit
@@ -51,34 +53,49 @@ Verify:
 /pm:prioritize [--auto]      Re-rank roadmap based on new signals
 /pm:competitor [name]        Run competitive analysis
 /pm:user-feedback [text]     Log and analyze user feedback
+/pm:po-onboard               Generate onboarding for a new PO
 ```
 
 ### Utilities
 
 ```
+/pm:bug [desc]               Log and assess a bug report
 /pm:decision [desc]          Log a product decision
 /pm:cut-scope [item]         Remove scope to accelerate launch
+/pm:map [--regen]            Document architecture with diagrams
 /pm:progress                 Show project status
+/pm:update                   Check for PM Assistant updates
 /pm:help                     List all commands
 ```
 
 ## Typical Flow
 
-1. Define the product: `/pm:new-project`
-2. Extract the v1 MVP: `/pm:scope`
-3. Identify the next chunk of work: `/pm:next-feature`
-4. Generate the technical design: `/pm:brief 1`
-5. **[Execution Layer builds the code using the Brief]**
-6. Verify the code meets the design: `/pm:review 1`
-7. Reflect on what was learned: `/pm:retro 1`
-8. Mark the feature complete: `/pm:sync`
-9. **[Repeat 3-8 until MVP is complete]**
-10. Check for gaps or tech debt: `/pm:audit`
-11. Audit launch readiness: `/pm:ship-check`
-11. **[Post-launch]** Collect feedback: `/pm:user-feedback`
-12. Pressure test a new idea: `/pm:discuss`
-13. Re-rank priorities: `/pm:prioritize`
-14. Plan what's next: `/pm:roadmap`
+1. **Define the product**: `/pm:new-project`
+2. **Extract the v1 MVP**: `/pm:scope`
+3. **Refine a specific idea**: `/pm:refine "magic link auth"`
+4. **Identify the next chunk of work**: `/pm:next-feature`
+5. **Initialize PO state**: `/pm:po-feature 1`
+6. **Generate the technical design**: `/pm:brief 1`
+7. **[Execution Layer builds the code using the Brief]**
+8. **Verify the code meets the design**: `/pm:review 1`
+9. **Reflect on what was learned**: `/pm:retro 1`
+10. **Mark the feature complete**: `/pm:sync`
+11. **[Repeat until MVP is complete]**
+12. **Check for gaps or tech debt**: `/pm:audit`
+13. **Audit launch readiness**: `/pm:ship-check`
+
+## Feature Lifecycle Example
+
+Here is how a single feature moves through the system:
+
+1.  **Refine**: You run `/pm:refine "user profiles"`. The PM asks about fields, avatars, and public vs. private. It creates `.po/features/user-profiles.md`.
+2.  **Queue**: You run `/pm:next-feature`. It pulls the "User Profiles" spec into the main `.pm/ROADMAP.md`.
+3.  **State**: You run `/pm:po-feature 2`. It initializes the "Epic" tracking for the Product Owner in `.po/features/02-user-profiles.md`.
+4.  **Brief**: You run `/pm:brief 2`. It locks in the decision to use Gravatar for avatars and saves it in `.pm/briefs/02-user-profiles/02-BRIEF.md`.
+5.  **Build**: Your coding agent reads the brief and writes the React components and API routes.
+6.  **Review**: You run `/pm:review 2`. The PM checks the code, sees avatars are working, and marks it **PASS**.
+7.  **Sync**: You run `/pm:sync`. The PM scans the codebase, confirms the new profile routes exist, and automatically updates the status in `.po/features/02-user-profiles.md` to **Implemented ✅**.
+8.  **Commit**: Every step above that modifies the `.pm/` or `.po/` directories automatically triggers a git commit to keep your product history clean.
 
 ## Works with Autonomous Agents
 
