@@ -1,6 +1,6 @@
 {
   "name": "ship-pm",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "PM Assistant — an opinionated meta-prompting framework for shipping products. Works alongside autonomous coding agents.",
   "type": "module",
   "main": "bin/install.mjs",
