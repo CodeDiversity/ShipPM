@@ -30,6 +30,11 @@ Display this help text:
  /pm:retro <feature>          Post-feature retrospective
  /pm:ship-check               Run launch readiness audit
 
+ PRODUCT OWNER DOCS
+
+ /pm:po-onboard               Generate an onboarding document for the Product Owner
+ /pm:po-feature <feature>     Generate/update PO documentation for a specific Feature
+
  STRATEGY
 
  /pm:roadmap [--refresh]      Research and suggest next features
