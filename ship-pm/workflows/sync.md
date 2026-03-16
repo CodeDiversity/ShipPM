@@ -26,6 +26,8 @@ Read:
 - `.pm/SCOPE.md` — what was planned (in scope, out of scope, later)
 - `.pm/FEATURES.md` — previous feature state (if exists)
 - `.pm/ROADMAP.md` — roadmap Features to see what was planned for execution
+- `.roadmap.md` — (GSD) Engineering roadmap for phase alignment
+- `.planning/` — (GSD) Execution phases and milestone data
 
 **Load persona:** `@~/.claude/ship-pm/agents/pm-strategist.md`
 
@@ -62,6 +64,15 @@ For each feature found, note:
 Look for features that exist in the codebase but weren't in the scope. These are either:
 - Organic additions during development (document them)
 - Framework defaults that came for free (note them)
+
+### 3d. GSD Alignment (Engineering Integration)
+If the project uses GSD (presence of `.roadmap.md` or `.planning/`):
+- Scan `.roadmap.md` to identify current engineering goals and upcoming phases.
+- Cross-reference PM `.pm/ROADMAP.md` with GSD engineering phases.
+- Identify any "drift" between what the PM planned (Features) and what Engineering is building (Phases).
+- If a GSD phase is "COMPLETED" or "DELIVERED", ensure the corresponding PM Feature is marked as implemented.
+- Align PM "Next Feature" with the current active GSD phase.
+- Update `.pm/STATE.md` to reflect the current active GSD phase and progress.
 
 ## 4. Update SCOPE.md
 
@@ -161,7 +172,18 @@ If `.pm/ARCHITECTURE.md` already exists but the codebase has changed significant
 Architecture may be outdated. Run /pm:map --regen to update.
 ```
 
-## 7. Display Summary
+## 7. Commit Changes
+
+After all `.pm` and `.po` files have been updated, perform a git commit:
+
+```bash
+git add .pm/ .po/
+git commit -m "pm: sync state with codebase and GSD engineering roadmap"
+```
+
+## 8. Done
+
+Display summary:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

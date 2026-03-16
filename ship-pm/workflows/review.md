@@ -75,3 +75,23 @@ If the review result is **PASS** or **PASS WITH WARNINGS**:
 4. Update the **Last Updated** timestamp.
 
 This closes the loop between "building" and "done" in the PO's view.
+
+## 7. Commit Changes
+
+After the review has been logged and the feature state updated, perform a git commit:
+
+```bash
+git add .pm/ .po/
+git commit -m "pm: log review results for Feature ${FEATURE}"
+```
+
+## 8. Done
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ PM ► REVIEW LOGGED & COMMITTED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ Review saved to .pm/reviews/
+ Feature state updated in .po/features/
+```

@@ -97,11 +97,20 @@ Append to `.pm/DECISIONS.md`:
 **Rationale:** [Based on user feedback / market shift / retro learnings / builder judgment]
 ```
 
-## 8. Done
+## 8. Commit Changes
+
+After the roadmap has been re-prioritized and the decision logged, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: re-prioritize roadmap"
+```
+
+## 9. Done
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► PRIORITIES UPDATED
+ PM ► PRIORITIES UPDATED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Roadmap re-ranked. New order:

@@ -67,18 +67,27 @@ Create or append to `.pm/BUGS.md`:
 If the bug is scored as 🔴 **Critical** or 🟠 **High**:
 > "⚠️ **High Severity Bug Detected:** This bug disrupts core user flows. I recommend bringing this to the execution agent immediately or running `/pm:prioritize` to adjust your roadmap."
 
-## 6. Done
+## 6. Commit Changes
 
-After logging, display:
+After the bug has been logged, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: log bug report"
+```
+
+## 7. Done
+
+After logging and committing, display:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► BUG LOGGED
+ PM ► BUG LOGGED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Bug: [1-line summary]
  Severity: [emoji] [Level]
- Status: Logged in .pm/BUGS.md
+ Status: Logged and committed in .pm/BUGS.md
 
  Next: If this is critical, assign it to your execution agent now. Otherwise, it will be evaluated during your next /pm:prioritize session.
 ```

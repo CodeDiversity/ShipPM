@@ -80,11 +80,20 @@ Check if any existing tasks in `.pm/tasks/` reference cut items. If so, note:
 ⚠️ Task TASK-NNN may be affected by this scope change. Review it.
 ```
 
-## 7. Done
+## 7. Commit Changes
+
+After the scope has been cut and the state files updated, perform a git commit:
+
+```bash
+git add .pm/ .po/
+git commit -m "pm: cut scope to accelerate launch"
+```
+
+## 8. Done
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► SCOPE CUT
+ PM ► SCOPE CUT & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Removed from scope:
@@ -92,5 +101,5 @@ Check if any existing tasks in `.pm/tasks/` reference cut items. If so, note:
    - [item 2]
 
  Remaining in scope: [count] items
- Updated: .pm/SCOPE.md, .pm/DECISIONS.md
+ Updated: .pm/SCOPE.md, .pm/DECISIONS.md, .po/features/
 ```

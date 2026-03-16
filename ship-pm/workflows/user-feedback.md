@@ -81,13 +81,22 @@ If the feedback is a **Feature Request** or identifies a **UX Issue**:
 
 This ensures the "Epic" state file captures real-world signals for future planning.
 
-## 6. Surface Insights
+## 6. Commit Changes
 
-After logging, display:
+After the feedback has been logged and feature state files updated, perform a git commit:
+
+```bash
+git add .pm/ .po/
+git commit -m "pm: log user feedback"
+```
+
+## 7. Surface Insights
+
+After logging and committing, display:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► FEEDBACK LOGGED
+ PM ► FEEDBACK LOGGED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Entry: [1-line summary]

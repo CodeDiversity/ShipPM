@@ -60,12 +60,21 @@ Once you have enough context, say:
 Use the template at `@~/.claude/ship-pm/templates/po-feature.md` to write the file to:
 `.po/features/[feature-name-slugized].md`
 
-## 5. Review and Next Steps
+## 5. Commit Changes
+
+After the feature spec has been created, perform a git commit:
+
+```bash
+git add .pm/ .po/
+git commit -m "pm: refine feature spec for [feature-name]"
+```
+
+## 6. Review and Next Steps
 
 Display:
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► FEATURE SPEC CREATED
+ PM ► FEATURE SPEC CREATED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Wrote: .po/features/[feature].md

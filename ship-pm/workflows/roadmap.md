@@ -155,12 +155,21 @@ Also log a decision:
 **Rationale:** Based on current capabilities, deferred scope, competitor analysis, and user needs.
 ```
 
-## 8. Done
+## 8. Commit Changes
+
+After the roadmap has been generated and the decision logged, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: generate product roadmap"
+```
+
+## 9. Done
 
 Display:
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► ROADMAP GENERATED
+ PM ► ROADMAP GENERATED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Horizon 1 (Now):   [count] features

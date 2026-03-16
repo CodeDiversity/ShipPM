@@ -105,11 +105,20 @@ Append to `.pm/DECISIONS.md`:
 **Action:** [What to do differently]
 ```
 
-## 7. Done
+## 7. Commit Changes
+
+After the retrospective has been written and the key learning logged, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: log retrospective for Feature ${FEATURE}"
+```
+
+## 8. Done
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► RETRO COMPLETE
+ PM ► RETRO COMPLETE & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Written: .pm/retros/FEATURE-${PADDED_FEATURE}-RETRO.md

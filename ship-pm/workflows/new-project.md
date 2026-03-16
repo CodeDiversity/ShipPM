@@ -159,13 +159,22 @@ Decisions are logged as they're made. Each entry captures the context, rationale
 **Rationale:** [Why these choices]
 ```
 
-## 9. Done
+## 9. Commit Changes
+
+After the project context has been initialized, perform a git commit:
+
+```bash
+git add .pm/ .po/
+git commit -m "pm: initialize new project context"
+```
+
+## 10. Done
 
 Display summary:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► PROJECT CREATED
+ PM ► PROJECT CREATED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Created:

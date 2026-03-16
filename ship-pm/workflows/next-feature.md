@@ -47,13 +47,22 @@ Update the `## Features` overview list at the top of the file to include the new
 Update the `## Progress` table at the bottom of the file to include the newly added Feature:
 `| [X]. [Name] | 0/TBD | Not started | - |`
 
-## 4. User Output
+## 4. Commit Changes
+
+After the new feature has been added to the roadmap, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: add Feature [X] to roadmap"
+```
+
+## 5. User Output
 
 Display the newly created Feature to the user:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► NEXT FEATURE SCOPED
+ PM ► NEXT FEATURE SCOPED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Added Feature [X]: [Feature Name] to ROADMAP.md
@@ -69,5 +78,5 @@ Display the newly created Feature to the user:
  To plan this Feature for execution with your agent, run its planning command.
 ```
 
-## 5. Sync State
+## 6. Sync State
 Remind the user that they can run `/pm:sync` later to check off these items in `SCOPE.md` once the coding agent finishes building them.

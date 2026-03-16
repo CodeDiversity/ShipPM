@@ -79,14 +79,23 @@ The content should look like:
 [What should the builder do next? Should we pause new features to clean this up, or push through?]
 ```
 
-## 6. Done
+## 6. Commit Changes
+
+After the audit report has been written, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: log forensic audit results"
+```
+
+## 7. Done
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PM ► AUDIT COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- Findings written to: .pm/audits/AUDIT-[YYYY-MM-DD].md
+ Findings written and committed to: .pm/audits/AUDIT-[YYYY-MM-DD].md
  
  Top issues found:
  - [Key finding 1]

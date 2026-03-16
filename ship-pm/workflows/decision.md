@@ -36,8 +36,17 @@ Append to `.pm/DECISIONS.md` using `@~/.claude/ship-pm/templates/decision.md` fo
 **Impact:** [What this affects]
 ```
 
-## 5. Done
+## 5. Commit Changes
+
+After the decision has been logged, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: log product decision"
+```
+
+## 6. Done
 
 ```
-Decision logged to .pm/DECISIONS.md
+Decision logged and committed to .pm/DECISIONS.md
 ```

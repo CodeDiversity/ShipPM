@@ -36,13 +36,22 @@ Check if the following file exists. If it does not, create it using the template
 
 If the file already exists, do not overwrite it. Instead, read it and offer to summarize or append new information.
 
-## 4. Done
+## 4. Commit Changes
+
+After the PO feature state has been initialized or updated, perform a git commit:
+
+```bash
+git add .po/
+git commit -m "pm: update PO feature state for Feature $ARGUMENTS"
+```
+
+## 5. Done
 
 Display summary:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► PO FEATURE STATE INITIALIZED
+ PM ► PO FEATURE STATE INITIALIZED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Created/Updated for Feature $ARGUMENTS:

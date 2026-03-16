@@ -83,11 +83,20 @@ Update `.pm/STATE.md`:
 - Feature: `scoped`
 - Last Updated: `[timestamp]`
 
-## 7. Done
+## 7. Commit Changes
+
+After the scope has been generated and state updated, perform a git commit:
+
+```bash
+git add .pm/
+git commit -m "pm: generate MVP scope"
+```
+
+## 8. Done
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► SCOPE COMPLETE
+ PM ► SCOPE COMPLETE & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Written: .pm/SCOPE.md
