@@ -46,6 +46,7 @@ Display this help text:
 
  UTILITIES
 
+ /pm:bug [desc]               Log a bug report and evaluate severity
  /pm:decision [desc]          Log a product decision
  /pm:cut-scope [item]         Remove scope to accelerate launch
  /pm:progress                 Show project status
