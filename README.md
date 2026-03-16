@@ -1,19 +1,19 @@
-# Ship Agent
+# PM Assistant
 
 **Ship, don't plan.** An opinionated meta-prompting framework for solo builders.
 
-Ship Agent gives your coding agent (Claude Code, Gemini CLI) the product thinking it needs to ship features that actually solve real problems — not just features that compile.
+PM Assistant gives your coding agent (Claude Code, Gemini CLI) the product thinking it needs to ship features that actually solve real problems — not just features that compile.
 
 ## What It Does
 
-Ship Agent adds `/pm:*` slash commands to your coding agent. These commands guide the agent to think like an opinionated PM: scoping MVPs, prioritizing tasks, writing implementation briefs, reviewing work, and auditing launch readiness.
+PM Assistant adds `/pm:*` slash commands to your coding agent. These commands guide the agent to think like an opinionated PM: scoping MVPs, prioritizing tasks, writing implementation briefs, reviewing work, and auditing launch readiness.
 
 **It is NOT a project management tool.** No Jira, no sprints, no story points. It's a set of prompts that make your coding agent smarter about *what* to build and *why*.
 
 ## Install
 
 ```bash
-npx ship-agent@latest
+npx ship-pm@latest
 ```
 
 Choose your runtime (Claude Code, Codex, Gemini, or all) and install location (global or local).
@@ -78,9 +78,9 @@ Verify:
 
 ## Works with Autonomous Agents
 
-Ship Agent handles the *product* layer. It is designed to constrain and guide autonomous coding agents that handle the *engineering* layer. They complement each other:
+PM Assistant handles the *product* layer. It is designed to constrain and guide autonomous coding agents that handle the *engineering* layer. They complement each other:
 
-| Ship Agent (Product) | Coding Agent (Engineering) |
+| PM Assistant (Product) | Coding Agent (Engineering) |
 |-------------|-----|
 | `/pm:scope` — what to build | Plans the roadmap feature |
 | `/pm:brief` — implementation constraints | Writes the code |
@@ -96,10 +96,10 @@ Ship Agent handles the *product* layer. It is designed to constrain and guide au
 
 ## How It Works
 
-Ship Agent is a collection of `.md` files that function as meta-prompts:
+PM Assistant is a collection of `.md` files that function as meta-prompts:
 
 ```
-ship-agent/
+ship-pm/
 ├── commands/pm/    # Slash command definitions
 ├── workflows/      # Step-by-step processes
 ├── agents/         # Specialized PM personas
@@ -126,11 +126,11 @@ All PM output lives in `.pm/` in your project:
 └── audits/                 # Launch audits
 ```
 
-*Note: All Ship Agent files live safely in `.pm/` to isolate them from your coding agent's execution layer.*
+*Note: All PM Assistant files live safely in `.pm/` to isolate them from your coding agent's execution layer.*
 
 ## Contributing
 
-Want to help make Ship Agent more opinionated? Check out our [Contributing Guide](CONTRIBUTING.md).
+Want to help make PM Assistant more opinionated? Check out our [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 

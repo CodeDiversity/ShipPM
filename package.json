@@ -1,5 +1,5 @@
 {
-  "name": "@mtrew2015/ship-pm",
+  "name": "ship-pm",
   "version": "1.0.0",
   "description": "PM Assistant — an opinionated meta-prompting framework for shipping products. Works alongside autonomous coding agents.",
   "type": "module",

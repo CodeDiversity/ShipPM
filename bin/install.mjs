@@ -3,10 +3,10 @@
 /**
  * Ship PM Installer
  *
- * Installs Ship Agent slash commands for coding agents.
+ * Installs PM Assistant slash commands for coding agents.
  * Modeled after standard agent installer patterns.
  *
- * Usage: npx ship-agent@latest
+ * Usage: npx ship-pm@latest
  */
 
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'fs';
@@ -16,7 +16,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const SOURCE_DIR = resolve(__dirname, '..', 'ship-agent');
+const SOURCE_DIR = resolve(__dirname, '..', 'ship-pm');
 
 // ─── Colors ────────────────────────────────────────
 
@@ -74,18 +74,18 @@ const RUNTIMES = {
   claude: {
     label: 'Claude Code',
     commandsDir: (home) => join(home, '.claude', 'commands', 'pm'),
-    configBase: (home) => join(home, '.claude', 'ship-agent'),
+    configBase: (home) => join(home, '.claude', 'ship-pm'),
   },
   gemini: {
     label: 'Gemini CLI',
     commandsDir: (home) => join(home, '.gemini', 'commands', 'pm'),
-    configBase: (home) => join(home, '.gemini', 'ship-agent'),
+    configBase: (home) => join(home, '.gemini', 'ship-pm'),
   },
   codex: {
     label: 'Codex CLI',
     // Codex uses ~/.codex/prompts/ for custom commands (flat structure)
     commandsDir: (home) => join(home, '.codex', 'prompts'),
-    configBase: (home) => join(home, '.codex', 'ship-agent'),
+    configBase: (home) => join(home, '.codex', 'ship-pm'),
     // Codex command files are prefixed with pm- instead of nested in pm/
     flatCommands: true,
   },
@@ -140,7 +140,7 @@ async function installForRuntime(runtime, home, scope) {
 
           // Read source, rewrite @~/.claude/ references to @~/.codex/
           let content = readFileSync(srcPath, 'utf-8');
-          content = content.replace(/~\/.claude\/ship-agent/g, '~/.codex/ship-agent');
+          content = content.replace(/~\/.claude\/ship-pm/g, '~/.codex/ship-pm');
           writeFileSync(destPath, content);
           totalFiles++;
         }
@@ -172,7 +172,7 @@ async function main() {
 
   console.log();
   console.log(bold('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
-  console.log(bold(' SHIP AGENT — Ship, don\'t plan.'));
+  console.log(bold(' PM ASSISTANT — Ship, don\'t plan.'));
   console.log(bold('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
 
   // Choose runtime
