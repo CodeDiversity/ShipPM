@@ -1,8 +1,12 @@
 # PM Assistant
 
+> [!WARNING]
+> **Beta Release:** Ship PM is currently in public beta. Expect some sharp edges and raw workflows as kinks are continuously being worked out. Contributions and feedback are highly encouraged!
+
 **Ship, don't plan.** An opinionated meta-prompting framework for solo builders.
 
-PM Assistant gives your coding agent (Claude Code, Gemini CLI) the product thinking it needs to ship features that actually solve real problems — not just features that compile.
+PM Assistant gives your coding agent (Claude Code, Gemini CLI and Codex) the product thinking it needs to ship features that actually solve real problems — not just features that compile.
+
 
 ## What It Does
 
