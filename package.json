@@ -1,0 +1,40 @@
+{
+  "name": "ship-agent",
+  "version": "1.0.0",
+  "description": "Ship Agent — an opinionated meta-prompting framework for shipping products. Works alongside autonomous coding agents.",
+  "type": "module",
+  "main": "bin/install.mjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/ship-agent.git"
+  },
+  "scripts": {
+    "lint": "alex ./**/*.md"
+  },
+  "bin": {
+    "ship-agent": "./bin/install.mjs"
+  },
+  "files": [
+    "bin/",
+    "ship-agent/"
+  ],
+  "keywords": [
+    "pm",
+    "product-management",
+    "claude-code",
+    "gemini",
+    "meta-prompting",
+    "context-engineering",
+    "shipping",
+    "mvp",
+    "scope"
+  ],
+  "author": "Ship Agent Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "alex": "^11.0.1"
+  }
+}
