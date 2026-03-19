@@ -33,7 +33,7 @@ The Context document is not an essay. It is a set of locked implementation decis
 If there is an area you want the engineering agent to figure out on its own, explicitly list it under `Claude's Discretion`.
 
 ### Rule 4: Include Canonical References
-Point the executor to any existing specs or documents that they MUST read to succeed. Examples: `.po/features/magic-links.md`, `.pm/ARCHITECTURE.md`.
+Point the executor to any existing specs or documents that they MUST read to succeed. Examples: `.pm/features/magic-links.md`, `.pm/ARCHITECTURE.md`.
 
 </brief_methodology>
 
@@ -43,7 +43,7 @@ Point the executor to any existing specs or documents that they MUST read to suc
 
 1. **Read the Feature goal** from `.pm/ROADMAP.md`
 2. **Read the project context** from `.pm/PROJECT.md`
-3. **Read the scope** from `.pm/SCOPE.md`
+3. **Read the scope** from `.pm/ROADMAP.md`
 4. **Inspect the codebase** to understand what stack is being used and what patterns are established.
 5. **Generate the Context document** in a structured execution-ready formatting.
 

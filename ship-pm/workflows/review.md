@@ -27,8 +27,8 @@ mkdir -p .pm/reviews
 
 Read:
 - `.pm/ROADMAP.md` — To get the Feature definition
-- `.pm/SCOPE.md` — To cross-reference any linked requirements
-- `.po/features/` — Optional: Read feature specs linked to this Feature.
+- `.pm/ROADMAP.md` — To cross-reference any linked requirements
+- `.pm/features/` — Optional: Read feature specs linked to this Feature.
 - `.pm/briefs/${PADDED_FEATURE}-*/*-BRIEF.md` — Optional: Read the PM brief to understand what was requested.
 
 ## 3. Codebase Inspection (Trust but Verify)
@@ -69,7 +69,7 @@ Display:
 ## 6. Update Feature State
 
 If the review result is **PASS** or **PASS WITH WARNINGS**:
-1. Identify the corresponding file in `.po/features/[padded-Feature]-[slug].md`.
+1. Identify the corresponding file in `.pm/features/[padded-Feature]-[slug].md`.
 2. Update the **Status** to "Implemented" (for PASS) or "Partially Implemented" (for PASS WITH WARNINGS).
 3. Move the items reviewed from **Next (Upcoming)** to **Implemented ✅**.
 4. Update the **Last Updated** timestamp.
@@ -81,7 +81,7 @@ This closes the loop between "building" and "done" in the PO's view.
 After the review has been logged and the feature state updated, perform a git commit:
 
 ```bash
-git add .pm/ .po/
+git add .pm/ .pm/
 git commit -m "pm: log review results for Feature ${FEATURE}"
 ```
 
@@ -93,5 +93,5 @@ git commit -m "pm: log review results for Feature ${FEATURE}"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  Review saved to .pm/reviews/
- Feature state updated in .po/features/
+ Feature state updated in .pm/features/
 ```

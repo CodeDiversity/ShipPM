@@ -48,7 +48,7 @@ Things that are explicitly deferred to post-MVP.
 When generating the next task:
 
 1. **Check what exists.** Read existing task titles from `.pm/tasks/` to avoid duplicates.
-2. **Check the scope.** Read `.pm/SCOPE.md` to understand what's in-scope.
+2. **Check the scope.** Read `.pm/ROADMAP.md` to understand what's in-scope.
 3. **Check the project.** Read `.pm/PROJECT.md` to understand the tech stack and constraints.
 4. **Apply tier ordering.** Pick the highest-tier unfinished item.
 5. **Break ties with dependency.** If two items are same tier, pick the one that unblocks more work.

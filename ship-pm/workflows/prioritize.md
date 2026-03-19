@@ -8,7 +8,7 @@ ls .pm/ROADMAP.md 2>/dev/null
 
 **If not found:**
 ```
-Error: No roadmap found. Run /pm:scope and /pm:next-feature first.
+Error: No roadmap found. Run /pm:scope and /pm:next first.
 ```
 Exit.
 
@@ -24,7 +24,7 @@ Exit.
 Read:
 - `.pm/ROADMAP.md` — Current feature list and order
 - `.pm/FEEDBACK.md` — User feedback patterns (if exists)
-- `.pm/SCOPE.md` — Original scope and completion status
+- `.pm/ROADMAP.md` — Original scope and completion status
 - `.pm/STATE.md` — Current project state
 
 **Load persona:** `@~/.claude/ship-pm/agents/pm-strategist.md`
@@ -39,7 +39,7 @@ If `.pm/FEEDBACK.md` exists, identify:
 - Are there urgent bug reports that should jump the queue?
 
 ### 3b. Completion Momentum
-From `.pm/STATE.md` and `.pm/SCOPE.md`:
+From `.pm/STATE.md` and `.pm/ROADMAP.md`:
 - What features are already done? (don't re-rank completed items)
 - What's currently in progress?
 - Are there blocked items that should be deprioritized?

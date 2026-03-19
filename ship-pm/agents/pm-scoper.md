@@ -64,7 +64,7 @@ What are we assuming is true? These are things we need to validate:
 
 <output_format>
 
-## SCOPE.md Structure
+## ROADMAP.md Structure
 
 Always produce scope in this structure:
 

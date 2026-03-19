@@ -12,7 +12,7 @@ allowed-tools:
 <objective>
 Scan the codebase for launch readiness across auth, security, legal, ops, testing, and UX. Produce an audit report with blockers, warnings, and positive signals.
 
-**Reads:** `.pm/PROJECT.md`, `.pm/SCOPE.md`, codebase
+**Reads:** `.pm/PROJECT.md`, `.pm/ROADMAP.md`, codebase
 **Creates:** `.pm/audits/SHIP-CHECK-[timestamp].md`
 
 **After this command:** Fix blockers and re-run, or ship.

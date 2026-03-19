@@ -12,7 +12,7 @@ allowed-tools:
 <objective>
 Perform a deep, forensic audit of the actual codebase to find what's missing, what's half-built, and where tech debt is accumulating. Compare reality against the ROADMAP and SCOPE.
 
-**Reads:** `.pm/ROADMAP.md`, `.pm/SCOPE.md`, `.pm/STATE.md`, codebase
+**Reads:** `.pm/ROADMAP.md`, `.pm/ROADMAP.md`, `.pm/STATE.md`, codebase
 **Creates/Updates:** `.pm/audits/AUDIT-[timestamp].md`
 
 **When to run:** When you lose track of what's actually done, before a major launch, or when you suspect the execution agent left things half-finished.

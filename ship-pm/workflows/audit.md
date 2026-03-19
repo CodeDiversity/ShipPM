@@ -23,7 +23,7 @@ Exit.
 ```
 
 **Load Context:**
-Read `.pm/SCOPE.md` and `.pm/ROADMAP.md` to establish the "source of truth" for what *should* exist.
+Read `.pm/ROADMAP.md` and `.pm/ROADMAP.md` to establish the "source of truth" for what *should* exist.
 
 Ensure the audits directory exists:
 ```bash
@@ -73,7 +73,7 @@ The content should look like:
 - [Specific shortcut identified, e.g. "No global error boundary"]
 
 ## 3. Scope Gaps
-- [Requirement from SCOPE.md] is completely missing from the codebase.
+- [Requirement from ROADMAP.md] is completely missing from the codebase.
 
 ## 4. PM Recommendation
 [What should the builder do next? Should we pause new features to clean this up, or push through?]
@@ -101,5 +101,5 @@ git commit -m "pm: log forensic audit results"
  - [Key finding 1]
  - [Key finding 2]
  
- Next: Run /pm:next-feature to plan a tech-debt sprint, or fix the gaps manually.
+ Next: Run /pm:next to plan a tech-debt sprint, or fix the gaps manually.
 ```

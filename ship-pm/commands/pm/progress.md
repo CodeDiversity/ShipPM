@@ -16,7 +16,7 @@ Display the current state of the PM project: roadmap Features, execution status,
 <context>
 **Prerequisites:** `.pm/ROADMAP.md` must exist. If not:
 ```
-No roadmap found. Run /pm:new-project or /pm:scope to start.
+No roadmap found. Run /pm:new-project to start.
 ```
 </context>
 
@@ -52,8 +52,8 @@ Read `.pm/ROADMAP.md` to count the total number of Features defined.
 
 ## 4. Recommend Next Action
 Based on state:
-- No scope → "Run `/pm:scope`"
-- No Features in roadmap → "Run `/pm:next-feature` to queue up work"
+- No ROADMAP.md → "Run `/pm:new-project`"
+- No Features in roadmap → "Run `/pm:next` to queue up work"
 - Features exist, no Briefs → "Run `/pm:brief [Feature]`"
 - Briefs exist, no reviews → "Run `/pm:review [Feature]`"
 - Reviews done, no sync → "Run `/pm:sync` to catalog features"

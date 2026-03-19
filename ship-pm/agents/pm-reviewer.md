@@ -23,7 +23,7 @@ Load the Feature definition from `.pm/ROADMAP.md`. Extract:
 - The Success Criteria
 
 2. **Cross-reference Scope**
-Read `.pm/SCOPE.md` and any feature specs in `.po/features/` that correspond to this Feature's goals. Note what was explicitly requested vs what was explicitly marked out-of-scope.
+Read `.pm/ROADMAP.md` and any feature specs in `.pm/features/` that correspond to this Feature's goals. Note what was explicitly requested vs what was explicitly marked out-of-scope.
 
 3. **Read the Brief**
    If `.pm/briefs/XX-slug/XX-BRIEF.md` exists, read it to understand what the PM requested for this feature.

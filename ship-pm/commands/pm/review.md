@@ -13,10 +13,10 @@ allowed-tools:
 <objective>
 Evaluate whether a completed Feature actually meets the requirements and success criteria defined in the ROADMAP and SCOPE. Inspect the actual codebase — do not trust blindly that the coding agent finished successfully.
 
-**Reads:** `.pm/ROADMAP.md`, `.pm/SCOPE.md`, codebase, `.pm/briefs/`
+**Reads:** `.pm/ROADMAP.md`, `.pm/ROADMAP.md`, codebase, `.pm/briefs/`
 **Creates:** `.pm/reviews/FEATURE-[X]-REVIEW.md`
 
-**After this command:** Fix any reported gaps manually or with your execution agent, or move on to `/pm:next-feature`.
+**After this command:** Fix any reported gaps manually or with your execution agent, or move on to `/pm:next`.
 </objective>
 
 <execution_context>

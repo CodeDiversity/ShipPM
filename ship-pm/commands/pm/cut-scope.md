@@ -1,7 +1,7 @@
 ---
 name: pm:cut-scope
-description: Remove scope items to simplify and accelerate launch
-argument-hint: "[item to cut]"
+description: Move MVP features to the backlog or ideas to accelerate launch
+argument-hint: "[feature to cut]"
 allowed-tools:
   - Read
   - Write
@@ -9,10 +9,12 @@ allowed-tools:
 ---
 
 <objective>
-Remove items from SCOPE.md's "In Scope" section and move them to appropriate sections (Out of Scope or Later). Log the cut as a decision.
+Remove items from ROADMAP.md's "The MVP (v1)" section and move them to "Horizon 2" (Backlog) or "Cut Scope" (Deferred). Log the cut as a decision.
 
-**Reads:** `.pm/SCOPE.md`
-**Updates:** `.pm/SCOPE.md`, `.pm/DECISIONS.md`
+**Reads:** `.pm/ROADMAP.md`
+**Updates:** `.pm/ROADMAP.md`, `.pm/DECISIONS.md`
+
+**When to run:** When you want to ship sooner, when a feature is harder than expected, or when you realize something isn't "minimum viable."
 </objective>
 
 <execution_context>
@@ -21,9 +23,9 @@ Remove items from SCOPE.md's "In Scope" section and move them to appropriate sec
 </execution_context>
 
 <context>
-**Arguments:** `$ARGUMENTS` = optional specific item to cut.
+**Arguments:** `$ARGUMENTS` = optional specific feature to cut.
 
-If no arguments, analyze SCOPE.md and suggest scope items to cut based on the PM philosophy (ship-first, minimum viable).
+If no arguments, analyze the MVP list and suggest features to cut based on the PM philosophy (ship-first, minimum viable).
 </context>
 
 <process>

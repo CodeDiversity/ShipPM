@@ -23,7 +23,7 @@ Exit.
 
 Read:
 - `.pm/PROJECT.md` — project name, stack, core flow
-- `.pm/SCOPE.md` — what was planned (in scope, out of scope, later)
+- `.pm/ROADMAP.md` — what was planned (in scope, out of scope, later)
 - `.pm/FEATURES.md` — previous feature state (if exists)
 - `.pm/ROADMAP.md` — roadmap Features to see what was planned for execution
 - `.roadmap.md` — (GSD) Engineering roadmap for phase alignment
@@ -45,7 +45,7 @@ Systematically scan the project to build a complete picture of what exists.
 - Count source files, test files, config files
 
 ### 3b. Detect Features
-For each scope item in SCOPE.md, search the codebase for evidence:
+For each scope item in ROADMAP.md, search the codebase for evidence:
 
 1. **Routes / Endpoints** — grep for route definitions, API endpoints
 2. **Auth** — look for login, signup, session, JWT, password handling
@@ -71,10 +71,10 @@ If the project uses GSD (presence of `.roadmap.md` or `.planning/`):
 - Cross-reference PM `.pm/ROADMAP.md` with GSD engineering phases.
 - Identify any "drift" between what the PM planned (Features) and what Engineering is building (Phases).
 - If a GSD phase is "COMPLETED" or "DELIVERED", ensure the corresponding PM Feature is marked as implemented.
-- Align PM "Next Feature" with the current active GSD phase.
+- Align PM "Next" with the current active GSD phase.
 - Update `.pm/STATE.md` to reflect the current active GSD phase and progress.
 
-## 4. Update SCOPE.md
+## 4. Update ROADMAP.md
 
 For each "In Scope" item, update with a status indicator:
 
@@ -93,41 +93,7 @@ Create or update `.pm/FEATURES.md` using `@~/.claude/ship-pm/templates/features.
 
 This is the **living catalog** of everything the app does. It should answer: "If someone asked me what this app does right now, what would I say?"
 
-Organize by capability area, not by file structure:
-
-```markdown
-# Features: [Project Name]
-
-**Last synced:** [timestamp]
-**Feature:** [Feature number if provided]
-
-## Implemented ✅
-- **[Feature name]** — [what it does, 1 sentence]
-  - Files: `src/foo.ts`, `src/bar.ts`
-
-## Partially Implemented ⚠️
-- **[Feature name]** — [what works, what's missing]
-  - Files: `src/baz.ts`
-  - Missing: [specific gap]
-
-## Not Started ❌
-- **[Feature name]** — [from scope, not yet built]
-
-## Unplanned (Bonus)
-- **[Feature name]** — [found in codebase but not in scope]
-```
-
-## 5b. Update PO Feature State Files
-
-For each feature in `.po/features/*.md`:
-1. Read the file to understand its current state.
-2. Cross-reference with the codebase scan results.
-3. Update the **Status** field (e.g., mark as "Implemented" or "Partially Implemented").
-4. Move successfully implemented items from **Next (Upcoming)** or **Nice to Have (Desired)** to the **Implemented ✅** section.
-5. If new "Nice to Have" items were discovered or implemented, update the file accordingly.
-6. Update the **Last Updated** timestamp.
-
-This ensures each "Epic" file remains the source of truth for its specific feature.
+Organize by capability area, not by file structure.
 
 ## 6. Update STATE.md
 
@@ -174,10 +140,10 @@ Architecture may be outdated. Run /pm:map --regen to update.
 
 ## 7. Commit Changes
 
-After all `.pm` and `.po` files have been updated, perform a git commit:
+After all `.pm` files have been updated, perform a git commit:
 
 ```bash
-git add .pm/ .po/
+git add .pm/
 git commit -m "pm: sync state with codebase and GSD engineering roadmap"
 ```
 
@@ -199,13 +165,13 @@ Display summary:
 
  Updated:
    .pm/FEATURES.md  — feature catalog
-   .pm/SCOPE.md     — scope with status markers
+   .pm/ROADMAP.md     — scope with status markers
    .pm/STATE.md     — project state
 
  Next: [Recommended action]
 ```
 
 Recommendations based on state:
-- If scope items remain → "Run `/pm:next-feature` to queue up the next roadmap Feature"
+- If scope items remain → "Run `/pm:next` to queue up the next roadmap Feature"
 - If partial items exist → "Review partial items — some features need finishing via execution agent"
 - If all items done → "Run `/pm:ship-check` to verify launch readiness"

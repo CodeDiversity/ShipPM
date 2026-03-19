@@ -12,7 +12,7 @@ allowed-tools:
 <objective>
 Capture real user feedback, tag it by feature area and sentiment, and surface recurring patterns. The PM uses this to make data-driven roadmap decisions instead of guessing what users want.
 
-**Reads:** `.pm/PROJECT.md`, `.pm/SCOPE.md`, `.pm/ROADMAP.md`, `.pm/FEEDBACK.md` (if exists)
+**Reads:** `.pm/PROJECT.md`, `.pm/ROADMAP.md`, `.pm/ROADMAP.md`, `.pm/FEEDBACK.md` (if exists)
 **Creates/Updates:** `.pm/FEEDBACK.md`
 
 **When to run:** After receiving feedback from a user, reading a support ticket, or noticing a pattern in usage data.

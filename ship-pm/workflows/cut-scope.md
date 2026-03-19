@@ -1,105 +1,57 @@
 # Workflow: Cut Scope
 
-## 1. Validate Prerequisites
+## 1. Context Gathering
 
-```bash
-ls .pm/SCOPE.md 2>/dev/null
-```
+Check if `.pm/ROADMAP.md` exists. Read:
+- `.pm/ROADMAP.md` — To see the MVP and backlog sections.
+- `@~/.claude/ship-pm/references/pm-philosophy.md` — To guide the cutting rationale.
 
-**If not found:**
-```
-Error: No scope found. Run /pm:scope first.
-```
-Exit.
+## 2. Identify Target
 
-## 2. Load Context
+If `$ARGUMENTS` is provided:
+- Search `.pm/ROADMAP.md` for the feature name.
+- If found in "The MVP (v1)", it's the target.
 
-Read `.pm/SCOPE.md` — parse the "In Scope" section.
+If `$ARGUMENTS` is NOT provided:
+- PM Strategist reviews "The MVP (v1)".
+- Propose 1-2 items to move to "Horizon 2" or "Cut Scope (Deferred)".
+- Present rationale for why this isn't strictly necessary for a v1 launch.
+- Ask the user to confirm the cut.
 
-**Load philosophy:** `@~/.claude/ship-pm/references/pm-philosophy.md`
+## 3. Perform the Cut
 
-## 3. Determine What to Cut
+Move the item from `## 1. The MVP (v1)` to:
+- `## 2. Horizon 2` (if we definitely want to do it later)
+- OR `## 5. Cut Scope (Deferred)` (if it's a "maybe never" or just doesn't fit).
 
-### If Argument Provided
-The user specified what to cut (e.g., `/pm:cut-scope "admin panel"`).
+If the feature was already defined in "Feature Details", move or remove that detail block as appropriate.
 
-Find the matching item in "In Scope". If not found:
-```
-"[item]" not found in scope. Current in-scope items:
-- [list items]
-```
-Exit.
-
-### If No Argument
-Analyze the scope and suggest items to cut. Apply the PM philosophy:
-- Items that don't affect the core flow
-- High-effort items with low immediate value
-- Items that can be added after launch without breaking anything
-
-Present suggestions:
-> "Here are items I'd cut to ship faster:"
-
-For each suggestion:
-- [Item] — [why it can be cut]
-
-Ask: "Which items should I cut? (comma-separated numbers, or 'all')"
-
-## 4. Move Items
-
-For each item to cut:
-1. Remove from "In Scope" section
-2. Add to "Later (Post-MVP)" section with rationale: "— Cut to accelerate launch"
-
-## 4b. Update PO Feature State Files
-
-For each cut item:
-1. Identify the corresponding file in `.po/features/[padded-Feature]-[slug].md`.
-2. Move the item from **Next (Upcoming)** or **Nice to Have (Desired)** to **Deferred (Cuts) ⏸️**.
-3. Add the reason for the cut (e.g., "Cut to accelerate launch").
-4. Update the **Last Updated** timestamp.
-
-This ensures each "Epic" file reflects the updated scope.
-
-## 5. Log Decision
+## 4. Log Decision
 
 Append to `.pm/DECISIONS.md`:
 ```markdown
 ---
-
-## [Date] — Scope Cut
-**Context:** Reducing scope to accelerate launch.
-**Decision:** Moved the following to post-MVP: [items]
-**Rationale:** [why each item was cut]
-**Impact:** Reduces scope, enables faster launch.
+## [Date] — Scope Cut: [Feature]
+**Context:** Aiming for faster launch.
+**Decision:** Moved [Feature] from MVP to [Backlog/Deferred].
+**Rationale:** [1 sentence reasoning based on PM philosophy]
 ```
 
-## 6. Update Affected Tasks
-
-Check if any existing tasks in `.pm/tasks/` reference cut items. If so, note:
-```
-⚠️ Task TASK-NNN may be affected by this scope change. Review it.
-```
-
-## 7. Commit Changes
-
-After the scope has been cut and the state files updated, perform a git commit:
+## 5. Commit Changes
 
 ```bash
-git add .pm/ .po/
-git commit -m "pm: cut scope to accelerate launch"
+git add .pm/
+git commit -m "pm: cut scope [Feature] for faster launch"
 ```
 
-## 8. Done
+## 6. Done
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PM ► SCOPE CUT & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- Removed from scope:
-   - [item 1]
-   - [item 2]
+ [Feature] moved to [New Section].
 
- Remaining in scope: [count] items
- Updated: .pm/SCOPE.md, .pm/DECISIONS.md, .po/features/
+ Next: Run /pm:progress to see your new roadmap status.
 ```

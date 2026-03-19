@@ -24,7 +24,7 @@ ls .planning/PROJECT.md 2>/dev/null
 3. Read `.planning/PROJECT.md`, `.planning/ROADMAP.md`, and scan `.planning/phases/`.
 4. Skip questioning (Step 4).
 5. Load the PM Strategist persona and synthesize the raw engineering files into proper PM abstractions.
-6. Write `.pm/PROJECT.md` and `.pm/SCOPE.md`.
+6. Write `.pm/PROJECT.md` and `.pm/ROADMAP.md` (unified).
 7. Initialize `.pm/STATE.md` and `.pm/DECISIONS.md`.
 8. Announce migration complete. Exit.
 
@@ -34,7 +34,7 @@ If `--auto` flag is present:
 - Extract project context from the provided document
 - Skip questioning (Step 4)
 - Jump to Step 5 with extracted context
-- After PROJECT.md, auto-generate scope (Step 6) without approval gate
+- After PROJECT.md, auto-generate roadmap (Step 6) without approval gate
 
 ## 4. Deep Questioning
 
@@ -60,14 +60,6 @@ Wait. Listen. Follow the thread with follow-up questions.
 - Find edges — what happens at boundaries?
 - Reveal motivation — why this, why now?
 
-**Track context checklist (internally):**
-As questioning progresses, mentally check off:
-- [ ] Problem understood
-- [ ] Target user identified
-- [ ] Core flow described
-- [ ] Stack discussed
-- [ ] Success criteria established
-
 **Decision gate:**
 When you could write a clear PROJECT.md, ask:
 
@@ -77,53 +69,38 @@ Options:
 - "Create PROJECT.md" — proceed
 - "Keep exploring" — continue questioning
 
-Loop until "Create PROJECT.md" selected.
-
 ## 5. Write PROJECT.md
 
 Create `.pm/` directory structure:
 
 ```bash
-mkdir -p .po/features .pm/briefs .pm/reviews .pm/audits
+mkdir -p .pm/features .pm/briefs .pm/reviews .pm/audits
 ```
 
 Synthesize all gathered context into `.pm/PROJECT.md` using the template from `@~/.claude/ship-pm/templates/project.md`.
 
-**Content rules:**
-- Don't compress or summarize — capture everything discussed
-- Include all decisions made during questioning
-- Be specific about stack, constraints, and success criteria
-- The core flow should be a numbered list of concrete steps
-
-## 6. Generate Initial Scope
+## 6. Generate Initial Roadmap (MVP + Backlog)
 
 **Load the PM Scoper persona** from `@~/.claude/ship-pm/agents/pm-scoper.md`.
-**Load scope patterns** from `@~/.claude/ship-pm/references/scope-patterns.md`.
 
-Analyze PROJECT.md and generate `.pm/SCOPE.md` using the template from `@~/.claude/ship-pm/templates/scope.md`.
+Analyze PROJECT.md and generate `.pm/ROADMAP.md` using the template from `@~/.claude/ship-pm/templates/roadmap.md`.
 
 **Scope rules (from PM Scoper):**
 1. Identify the core flow — the ONE thing the user does
-2. Only include items where the core flow breaks without them
-3. Default to cutting — be generous with "Out of Scope"
-4. Label "Later" items so the builder knows they're acknowledged
-5. State real risks, not hypothetical ones
-6. Surface assumptions that need validation
+2. Only include items in "The MVP (v1)" where the core flow breaks without them
+3. Default to Horizon 2 or 4 — be aggressive about what isn't needed for v1
+4. Label "Cut Scope" items clearly.
 
 **Approval gate (interactive mode only):**
 
-Show the generated scope and ask:
+Show the generated roadmap and ask:
 
-> "Here's the scope. Does this look right?"
+> "Here's the roadmap. Does the MVP (v1) look tight enough to ship quickly?"
 
 Options:
 - "Looks good" — proceed
-- "Too ambitious" — cut more scope
+- "Too ambitious" — cut more from v1
 - "Missing something" — add items
-- "Let me edit" — user will edit SCOPE.md directly
-
-If "Too ambitious" — apply more aggressive cutting and re-present.
-If "Missing something" — ask what's missing, add it, re-present.
 
 ## 7. Initialize State
 
@@ -132,14 +109,14 @@ Create `.pm/STATE.md`:
 ```markdown
 # PM State
 
-**Feature:** scoped
+**Feature:** initialized
 **Created:** [timestamp]
 **Last Updated:** [timestamp]
 **Features Defined:** 0
 **Features Completed:** 0
 
 ## Next Action
-Run `/pm:next-feature` to queue up the first roadmap Feature.
+Run `/pm:next` to queue up the first roadmap Feature.
 ```
 
 ## 8. Initialize Decision Log
@@ -149,13 +126,11 @@ Create `.pm/DECISIONS.md`:
 ```markdown
 # Product Decisions
 
-Decisions are logged as they're made. Each entry captures the context, rationale, and alternatives.
-
 ---
 
 ## [Date] — Project Initialized
 **Context:** Starting a new project.
-**Decision:** [Stack and key technical choices from questioning]
+**Decision:** [Stack and key technical choices]
 **Rationale:** [Why these choices]
 ```
 
@@ -164,7 +139,7 @@ Decisions are logged as they're made. Each entry captures the context, rationale
 After the project context has been initialized, perform a git commit:
 
 ```bash
-git add .pm/ .po/
+git add .pm/
 git commit -m "pm: initialize new project context"
 ```
 
@@ -179,9 +154,9 @@ Display summary:
 
  Created:
    .pm/PROJECT.md    — project context
-   .pm/SCOPE.md      — MVP scope
+   .pm/ROADMAP.md    — unified roadmap (v1 + backlog)
    .pm/STATE.md      — project state
    .pm/DECISIONS.md  — decision log
 
- Next: Run /pm:next-feature to queue up your first roadmap Feature.
+ Next: Run /pm:next to queue up your first roadmap Feature.
 ```

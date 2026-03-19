@@ -23,7 +23,7 @@ Exit.
 
 Read:
 - `.pm/PROJECT.md` — project name, stack, constraints
-- `.pm/SCOPE.md` — what's in scope (to know what to check for)
+- `.pm/ROADMAP.md` — what's in scope (to know what to check for)
 
 **Load persona:** `@~/.claude/ship-pm/agents/pm-auditor.md`
 **Load checklist:** `@~/.claude/ship-pm/references/launch-checklist.md`

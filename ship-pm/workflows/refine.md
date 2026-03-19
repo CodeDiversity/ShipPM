@@ -8,9 +8,9 @@ ls .pm/PROJECT.md 2>/dev/null
 ```
 **If not found:** Exit with "Error: No project found. Run `/pm:new-project` first."
 
-Ensure the `.po/features/` directory exists:
+Ensure the `.pm/features/` directory exists:
 ```bash
-mkdir -p .po/features
+mkdir -p .pm/features
 ```
 
 ## 2. Load Context
@@ -24,7 +24,8 @@ mkdir -p .po/features
 
 Read:
 - `.pm/PROJECT.md` (for overall context)
-- The user's input `{{CLI_ARGS}}`
+- `.pm/ROADMAP.md` (to see existing features)
+- The user's input `$ARGUMENTS`
 
 **Load personas and references:** 
 - `@~/.claude/ship-pm/agents/pm-scoper.md`
@@ -32,15 +33,13 @@ Read:
 
 ## 3. Conversational Exploration (The PM Interview)
 
-Your goal is to fill out the feature spec logically. Do not bombard the user with a massive 10-part form. Have a conversation. 
+Your goal is to flesh out the feature logically. Have a conversation. 
 
-**If the input was vague (e.g., "add billing"):**
+**If the input was vague:**
 Ask 1-2 targeted questions to understand the *Why* and *Who*.
-> "Got it, billing. Are we doing simple flat-rate subscriptions via Stripe Checkout, or do we need usage-based metering? What's the fastest way to get paid?"
 
-**If the input was specific (e.g., "add magic link login"):**
+**If the input was specific:**
 Validate the happy path and immediately ask about edge cases or scope cuts.
-> "Magic links are great. What happens if the link expires while they are clicking it? Also, are we cutting social login (Google/GitHub) completely for now?"
 
 Use `AskUserQuestion` to get their answers. (Format: ask one or two precise questions at a time. Wait for the answer).
 
@@ -57,15 +56,35 @@ Keep asking questions (max 3-4 turns) until you have a clear picture of:
 Once you have enough context, say:
 > "Perfect. I have enough context. Drafting the feature spec..."
 
-Use the template at `@~/.claude/ship-pm/templates/po-feature.md` to write the file to:
-`.po/features/[feature-name-slugized].md`
+Write a consolidated feature spec file to `.pm/features/[feature-name-slugized].md`. 
+
+**Format:**
+```markdown
+# Feature: [Name]
+**Goal**: [1 sentence]
+**Status**: [Proposed/Refined]
+
+## User Flow
+1. [Step 1]
+2. [Step 2]
+
+## Requirements
+- [REQ-01]: [Requirement]
+- [REQ-02]: [Requirement]
+
+## Out of Scope
+- [What we are NOT building]
+
+## Edge Cases to Handle
+- [Edge Case 1]
+```
 
 ## 5. Commit Changes
 
 After the feature spec has been created, perform a git commit:
 
 ```bash
-git add .pm/ .po/
+git add .pm/
 git commit -m "pm: refine feature spec for [feature-name]"
 ```
 
@@ -77,7 +96,7 @@ Display:
  PM ► FEATURE SPEC CREATED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- Wrote: .po/features/[feature].md
+ Wrote: .pm/features/[feature].md
 
  Summary:
  - Core: [1 sentence summary of happy path]
@@ -85,7 +104,7 @@ Display:
 
  Next steps:
  To queue this up for building, run:
- /pm:next-feature
+ /pm:next
 ```
 
-Optionally, ask if they want to append this feature to the main `.pm/SCOPE.md` file under "In Scope (v1)" or "Later". If yes, append a one-liner to `SCOPE.md`.
+Ask if they want to append this feature to the main `.pm/ROADMAP.md` file under "The MVP (v1)" or "Horizon 2". If yes, append it.
