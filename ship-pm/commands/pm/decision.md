@@ -1,6 +1,6 @@
 ---
 name: pm:decision
-description: Log a product decision with rationale
+description: Log a product decision and rationale in the project bible
 argument-hint: "[description]"
 allowed-tools:
   - Read
@@ -9,23 +9,20 @@ allowed-tools:
 ---
 
 <objective>
-Log a product decision with its context, rationale, and alternatives considered. Appends to `.pm/DECISIONS.md`.
+Capture a specific product decision, its context, and the rationale behind it. Appends the decision to the "Decisions & Learnings" table in PROJECT.md.
 
-**Reads:** `.pm/DECISIONS.md`
-**Updates:** `.pm/DECISIONS.md`
+**Reads:** `.pm/PROJECT.md`
+**Updates:** `.pm/PROJECT.md`
 </objective>
 
 <execution_context>
 @~/.claude/ship-pm/workflows/decision.md
-@~/.claude/ship-pm/templates/decision.md
 </execution_context>
 
 <context>
 **Arguments:** `$ARGUMENTS` = optional description of the decision.
 
-If no arguments provided, ask the user:
-- "What decision did you make?"
-- "Why this choice? What alternatives did you consider?"
+**Prerequisites:** `.pm/PROJECT.md` must exist.
 </context>
 
 <process>

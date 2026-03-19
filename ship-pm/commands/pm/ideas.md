@@ -15,8 +15,8 @@ allowed-tools:
 <objective>
 Generate new product ideas based on the current state and market, or engage in a critical discussion about a specific feature idea. Replaces long-term "roadmapping" with a lean discovery process.
 
-**Reads:** `.pm/PROJECT.md`, `.pm/ROADMAP.md`, `.pm/FEATURES.md`, codebase
-**Updates:** `.pm/ROADMAP.md`, `.pm/DECISIONS.md`
+**Reads:** `.pm/PROJECT.md`, `.pm/ROADMAP.md`, codebase
+**Updates:** `.pm/ROADMAP.md`, `.pm/PROJECT.md` (logs the decision)
 
 **When to run:** When you need fresh ideas, want to discuss a new feature, or want to see what competitors are doing.
 </objective>

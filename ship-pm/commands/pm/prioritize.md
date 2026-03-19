@@ -10,12 +10,10 @@ allowed-tools:
 ---
 
 <objective>
-Re-evaluate and re-rank the features in ROADMAP.md based on new signals: user feedback, market changes, completed work, or the builder's gut feeling. Produces a revised priority order.
+Re-evaluate and re-rank the features in ROADMAP.md based on new signals: user feedback, market changes, or the builder's gut feeling.
 
-**Reads:** `.pm/ROADMAP.md`, `.pm/FEEDBACK.md` (if exists), `.pm/ROADMAP.md`, `.pm/STATE.md`
-**Updates:** `.pm/ROADMAP.md`, `.pm/DECISIONS.md`
-
-**When to run:** After logging user feedback, after a market shift, or whenever priorities feel off.
+**Reads:** `.pm/ROADMAP.md`, `.pm/FEEDBACK.md` (if exists)
+**Updates:** `.pm/ROADMAP.md`, `.pm/PROJECT.md`
 </objective>
 
 <execution_context>
@@ -27,12 +25,9 @@ Re-evaluate and re-rank the features in ROADMAP.md based on new signals: user fe
 
 <context>
 **Flags:**
-- `--auto` — Skip interactive discussion and let the PM rank automatically based on available signals.
+- `--auto` — Skip interactive discussion.
 
-**Prerequisites:** `.pm/ROADMAP.md` must exist. If not:
-```
-Error: No roadmap found. Run /pm:scope and /pm:next first.
-```
+**Prerequisites:** `.pm/ROADMAP.md` must exist.
 </context>
 
 <process>

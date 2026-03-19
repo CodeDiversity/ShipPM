@@ -34,11 +34,12 @@
 ## Constraints
 - [Timeline, budget, technical constraints]
 
-## Key Decisions
+---
 
-| Decision | Rationale | Status |
-|----------|-----------|--------|
-| [Choice] | [Why] | Decided / Pending |
+## Decisions & Learnings
+| Date | Decision | Rationale |
+|------|----------|-----------|
+| [Date] | Initialized Project | Starting a new project |
 
 ---
 *Created by PM Assistant. Edit freely — you own this document.*

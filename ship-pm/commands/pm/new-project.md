@@ -10,13 +10,11 @@ allowed-tools:
 ---
 
 <objective>
-Initialize a new PM project by understanding the builder's idea through deep questioning, then producing PROJECT.md and a unified ROADMAP.md (containing the MVP scope).
+Initialize a new PM project by understanding the builder's idea through deep questioning, then producing the project bible (PROJECT.md) and the unified ROADMAP.md.
 
 **Creates:**
-- `.pm/PROJECT.md` — project context document
+- `.pm/PROJECT.md` — project context, vision, and decisions
 - `.pm/ROADMAP.md` — unified roadmap (v1 scope + backlog + ideas)
-- `.pm/STATE.md` — project tracking state
-- `.pm/DECISIONS.md` — decision log (initialized)
 
 **After this command:** Run `/pm:next` to queue up the first work Feature.
 </objective>
@@ -33,11 +31,6 @@ Initialize a new PM project by understanding the builder's idea through deep que
 <context>
 **Flags:**
 - `--auto` — Automatic mode. Expects an idea document via @ reference. Skips questioning, extracts context from the document, and generates project documents without interaction.
-
-If `--auto` is used without a document:
-```
-Error: --auto requires an idea document.
-```
 </context>
 
 <process>

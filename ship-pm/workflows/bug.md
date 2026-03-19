@@ -1,93 +1,24 @@
-# Workflow: Bug Report
+# Workflow: Log Bug
 
-## 1. Validate Prerequisites
+## 1. Context Gathering
+Ask user: What is the bug? Expected vs Actual?
 
-```bash
-ls .pm/PROJECT.md 2>/dev/null
-```
+## 2. Log in BUGS.md
+Append the bug details to `.pm/BUGS.md`.
 
-**If not found:**
-```
-Error: No project found. Run /pm:new-project first.
-```
-Exit.
+## 3. Log in PROJECT.md
+Append a new row to the `## Decisions & Learnings` table in `.pm/PROJECT.md`:
+`| [Date] | Bug Logged: [Bug Name] | [Severity] |`
 
-## 2. Collect Bug Information
-
-**Display banner:**
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► LOG BUG
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**If `$ARGUMENTS` contains the bug description:**
-Use it directly.
-
-**If `$ARGUMENTS` is empty:**
-Ask:
-1. "What is the bug? Briefly describe what went wrong."
-2. "What is the expected behavior?"
-3. "Are there steps to reproduce it easily?"
-
-## 3. Assess Severity
-
-Evaluate the bug and assign a severity level based on these criteria:
-
-- 🔴 **Critical:** Broken core flow, data loss, security issue, or blocking a launch. Needs immediate attention.
-- 🟠 **High:** Major feature broken, no obvious workaround, but not a core flow.
-- 🟡 **Medium:** Non-critical feature broken or visual bug that damages trust; has a workaround.
-- ⚪ **Low:** Minor visual glitch, typo, or edge case affecting very few users.
-
-## 4. Log the Bug
-
-Create or append to `.pm/BUGS.md`:
-
-```markdown
-# Bug Tracker
-
-**Last updated:** [timestamp]
-**Open Bugs:** [count]
-
----
-
-## [Date] — [1-line summary of the bug]
-**Status:** Open
-**Severity:** [🔴 / 🟠 / 🟡 / ⚪]
-**Description:** [Description or user's exact input]
-**Expected:** [What should happen]
-**Repro:** [Steps or context to reproduce]
-**PM Take:** [1 sentence — impact on user experience and recommendation on when to fix]
-
----
-```
-
-## 5. Prioritization Check
-
-If the bug is scored as 🔴 **Critical** or 🟠 **High**:
-> "⚠️ **High Severity Bug Detected:** This bug disrupts core user flows. I recommend bringing this to the execution agent immediately or running `/pm:prioritize` to adjust your roadmap."
-
-## 6. Commit Changes
-
-After the bug has been logged, perform a git commit:
-
+## 4. Commit Changes
 ```bash
 git add .pm/
-git commit -m "pm: log bug report"
+git commit -m "pm: log bug [Bug]"
 ```
 
-## 7. Done
-
-After logging and committing, display:
-
+## 5. Done
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PM ► BUG LOGGED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
- Bug: [1-line summary]
- Severity: [emoji] [Level]
- Status: Logged and committed in .pm/BUGS.md
-
- Next: If this is critical, assign it to your execution agent now. Otherwise, it will be evaluated during your next /pm:prioritize session.
 ```

@@ -10,12 +10,10 @@ allowed-tools:
 ---
 
 <objective>
-Capture a bug report, assess its severity (Critical, High, Medium, Low), and append it to `.pm/BUGS.md`. This ensures defects are tracked alongside feature work and can be properly prioritized against the roadmap.
+Capture a bug report, assess its severity, and append it to BUGS.md. Logs the discovery in the project bible.
 
 **Reads:** `.pm/PROJECT.md`, `.pm/BUGS.md` (if exists)
-**Creates/Updates:** `.pm/BUGS.md`
-
-**When to run:** When a defect is discovered during testing, reported by a user, or found in production.
+**Creates/Updates:** `.pm/BUGS.md`, `.pm/PROJECT.md`
 </objective>
 
 <execution_context>
@@ -26,15 +24,7 @@ Capture a bug report, assess its severity (Critical, High, Medium, Low), and app
 <context>
 **Arguments:** `$ARGUMENTS` = optional description of the bug.
 
-If no arguments are provided, ask the user interactively:
-- "What is the bug?"
-- "What is the expected behavior vs actual behavior?"
-- "How easily can this be reproduced?"
-
-**Prerequisites:** `.pm/PROJECT.md` must exist. If not:
-```
-Error: No project found. Run /pm:new-project first.
-```
+**Prerequisites:** `.pm/PROJECT.md` must exist.
 </context>
 
 <process>

@@ -1,57 +1,32 @@
 # Workflow: Cut Scope
 
-## 1. Context Gathering
+## 1. Identify Target
 
-Check if `.pm/ROADMAP.md` exists. Read:
-- `.pm/ROADMAP.md` — To see the MVP and backlog sections.
-- `@~/.claude/ship-pm/references/pm-philosophy.md` — To guide the cutting rationale.
+Read `.pm/ROADMAP.md`.
+If `$ARGUMENTS` provided, it's the target. Otherwise, PM suggests cuts.
 
-## 2. Identify Target
+## 2. Perform the Cut
 
-If `$ARGUMENTS` is provided:
-- Search `.pm/ROADMAP.md` for the feature name.
-- If found in "The MVP (v1)", it's the target.
+Move item from MVP to Backlog or Cut section in `ROADMAP.md`.
 
-If `$ARGUMENTS` is NOT provided:
-- PM Strategist reviews "The MVP (v1)".
-- Propose 1-2 items to move to "Horizon 2" or "Cut Scope (Deferred)".
-- Present rationale for why this isn't strictly necessary for a v1 launch.
-- Ask the user to confirm the cut.
+## 3. Log Decision in PROJECT.md
 
-## 3. Perform the Cut
+Append a new row to the `## Decisions & Learnings` table in `.pm/PROJECT.md`:
+`| [Date] | Cut Scope: [Feature] | [Rationale] |`
 
-Move the item from `## 1. The MVP (v1)` to:
-- `## 2. Horizon 2` (if we definitely want to do it later)
-- OR `## 5. Cut Scope (Deferred)` (if it's a "maybe never" or just doesn't fit).
-
-If the feature was already defined in "Feature Details", move or remove that detail block as appropriate.
-
-## 4. Log Decision
-
-Append to `.pm/DECISIONS.md`:
-```markdown
----
-## [Date] — Scope Cut: [Feature]
-**Context:** Aiming for faster launch.
-**Decision:** Moved [Feature] from MVP to [Backlog/Deferred].
-**Rationale:** [1 sentence reasoning based on PM philosophy]
-```
-
-## 5. Commit Changes
+## 4. Commit Changes
 
 ```bash
 git add .pm/
 git commit -m "pm: cut scope [Feature] for faster launch"
 ```
 
-## 6. Done
+## 5. Done
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PM ► SCOPE CUT & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- [Feature] moved to [New Section].
-
- Next: Run /pm:progress to see your new roadmap status.
+ [Feature] moved to backlog.
 ```

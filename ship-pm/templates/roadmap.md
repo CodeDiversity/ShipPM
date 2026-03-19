@@ -1,12 +1,14 @@
 # Roadmap: [Project Name]
 
+**Progress:** 0/0 features complete
+
 ## 1. The MVP (v1)
 The core features we are shipping NOW to get in front of users.
 
 | Feature | Goal | Status |
 |---------|------|--------|
-| [Feature 1] | [What this delivers] | [Not Started / In Progress / Done] |
-| [Feature 2] | [What this delivers] | [Not Started / In Progress / Done] |
+| [Feature 1] | [What this delivers] | ❌ |
+| [Feature 2] | [What this delivers] | ❌ |
 
 ---
 

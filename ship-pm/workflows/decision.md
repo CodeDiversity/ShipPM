@@ -1,52 +1,31 @@
-# Workflow: Decision
+# Workflow: Log Decision
 
-## 1. Parse Arguments
+## 1. Context Gathering
 
-If `$ARGUMENTS` is provided, use it as the decision description.
-If no arguments, ask the user:
-- "What decision did you make?"
-- "Why this choice? What alternatives did you consider?"
+Check if `.pm/PROJECT.md` exists. Read it.
+If `$ARGUMENTS` is empty, ask the user:
+- "What is the decision?"
+- "What was the rationale or alternative considered?"
 
-## 2. Load Context
+## 2. Save Decision
 
-Read `.pm/DECISIONS.md` if it exists.
-Read `.pm/PROJECT.md` for project context.
+Append a new row to the `## Decisions & Learnings` table in `.pm/PROJECT.md`:
+`| [Date] | [Decision Summary] | [Rationale] |`
 
-## 3. Gather Decision Details
-
-If arguments didn't include full context, ask the user:
-1. **Context:** "What prompted this decision?"
-2. **Alternatives:** "What options did you consider?"
-3. **Rationale:** "Why this choice over the alternatives?"
-4. **Impact:** "What does this affect going forward?"
-
-## 4. Log Decision
-
-Append to `.pm/DECISIONS.md` using `@~/.claude/ship-pm/templates/decision.md` format:
-
-```markdown
----
-
-## [Date] — [Decision Title]
-**Context:** [What prompted this]
-**Decision:** [What was decided]
-**Rationale:** [Why]
-**Alternatives Considered:**
-- [Option] — [rejected because]
-**Impact:** [What this affects]
-```
-
-## 5. Commit Changes
-
-After the decision has been logged, perform a git commit:
+## 3. Commit Changes
 
 ```bash
-git add .pm/
-git commit -m "pm: log product decision"
+git add .pm/PROJECT.md
+git commit -m "pm: log decision [Decision]"
 ```
 
-## 6. Done
+## 4. Done
 
+Display summary:
 ```
-Decision logged and committed to .pm/DECISIONS.md
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ PM ► DECISION LOGGED & COMMITTED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ Logged to .pm/PROJECT.md
 ```

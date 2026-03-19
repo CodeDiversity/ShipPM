@@ -1,123 +1,27 @@
 # Workflow: Prioritize
 
-## 1. Validate Prerequisites
+## 1. Load Context
+Read `.pm/ROADMAP.md` and `.pm/FEEDBACK.md`.
 
-```bash
-ls .pm/ROADMAP.md 2>/dev/null
-```
+## 2. Analyze and Propose
+PM Strategist scores features and proposes new order.
 
-**If not found:**
-```
-Error: No roadmap found. Run /pm:scope and /pm:next first.
-```
-Exit.
+## 3. Update ROADMAP.md
+Reorder items in the MVP table.
 
-## 2. Load Context
+## 4. Log Decision in PROJECT.md
+Append a new row to the `## Decisions & Learnings` table in `.pm/PROJECT.md`:
+`| [Date] | Re-prioritized Roadmap | [Rationale] |`
 
-**Display banner:**
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- PM ► PRIORITIZE — Re-ranking roadmap
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-Read:
-- `.pm/ROADMAP.md` — Current feature list and order
-- `.pm/FEEDBACK.md` — User feedback patterns (if exists)
-- `.pm/ROADMAP.md` — Original scope and completion status
-- `.pm/STATE.md` — Current project state
-
-**Load persona:** `@~/.claude/ship-pm/agents/pm-strategist.md`
-**Load prioritization framework:** `@~/.claude/ship-pm/references/prioritization.md`
-
-## 3. Analyze Signals
-
-### 3a. Feedback Patterns
-If `.pm/FEEDBACK.md` exists, identify:
-- Which feature areas have the most feedback mentions?
-- What is the dominant sentiment per area?
-- Are there urgent bug reports that should jump the queue?
-
-### 3b. Completion Momentum
-From `.pm/STATE.md` and `.pm/ROADMAP.md`:
-- What features are already done? (don't re-rank completed items)
-- What's currently in progress?
-- Are there blocked items that should be deprioritized?
-
-### 3c. Dependencies
-From `.pm/ROADMAP.md`:
-- Which features depend on others?
-- Is there a critical path that must be maintained?
-
-## 4. Generate Proposed Ranking
-
-For each incomplete feature, score on:
-
-| Factor | Weight | Question |
-|--------|--------|----------|
-| **User Signal** | High | Are users asking for this? |
-| **Business Impact** | High | Does this drive retention/revenue? |
-| **Effort** | Medium | How complex relative to value? |
-| **Dependencies** | Medium | Does this unblock other features? |
-| **Momentum** | Low | Does this align with what we just built? |
-
-Propose a new priority ordering.
-
-## 5. Interactive Discussion (unless --auto)
-
-Present the proposed re-ranking to the user:
-
-> "Based on [signals used], here's my recommended priority order..."
-
-Show the current order vs the proposed order side-by-side.
-
-Ask:
-1. "Does this new ranking feel right?"
-2. "Any features you want to force to the top or bottom?"
-
-Incorporate feedback. If `--auto`, skip this step.
-
-## 6. Update ROADMAP.md
-
-Reorder the features in `.pm/ROADMAP.md` to match the approved ranking.
-
-Update the overview list at the top of the file to reflect the new order.
-
-## 7. Log the Decision
-
-Append to `.pm/DECISIONS.md`:
-
-```markdown
----
-
-## [Date] — Roadmap Re-Prioritized
-**Context:** [What triggered the re-prioritization]
-**Decision:** Re-ordered [N] features. Top priority is now [Feature Name].
-**Rationale:** [Based on user feedback / market shift / past learnings / builder judgment]
-```
-
-## 8. Commit Changes
-
-After the roadmap has been re-prioritized and the decision logged, perform a git commit:
-
+## 5. Commit Changes
 ```bash
 git add .pm/
 git commit -m "pm: re-prioritize roadmap"
 ```
 
-## 9. Done
-
+## 6. Done
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PM ► PRIORITIES UPDATED & COMMITTED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
- Roadmap re-ranked. New order:
- 1. [Feature Name] ← [moved up/down/unchanged]
- 2. [Feature Name] ← [moved up/down/unchanged]
- 3. [Feature Name] ← [moved up/down/unchanged]
-
- Signals used: [feedback / builder feedback / builder input]
-
- Next: Run /pm:brief [top feature] to start building the new top priority.
 ```

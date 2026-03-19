@@ -6,11 +6,7 @@
 ls .pm/PROJECT.md 2>/dev/null
 ```
 
-**If not found:**
-```
-Error: No project found. Run /pm:new-project first.
-```
-Exit.
+**If not found:** Exit with error.
 
 ## 2. Load Context
 
@@ -23,155 +19,57 @@ Exit.
 
 Read:
 - `.pm/PROJECT.md` — project name, stack, core flow
-- `.pm/ROADMAP.md` — what was planned (in scope, out of scope, later)
-- `.pm/FEATURES.md` — previous feature state (if exists)
-- `.pm/ROADMAP.md` — roadmap Features to see what was planned for execution
-- `.roadmap.md` — (GSD) Engineering roadmap for phase alignment
-- `.planning/` — (GSD) Execution phases and milestone data
+- `.pm/ROADMAP.md` — what was planned and current status markers
 
 **Load persona:** `@~/.claude/ship-pm/agents/pm-strategist.md`
-
-Also read:
-- `.pm/STATE.md` — Project state
-- `.pm/briefs/` — PM briefs generated for each feature (if they exist)
 
 ## 3. Deep Codebase Scan
 
 Systematically scan the project to build a complete picture of what exists.
 
-### 3a. Detect Stack & Structure
-- Identify framework, language, database, deployment
-- Map the high-level directory structure
-- Count source files, test files, config files
-
-### 3b. Detect Features
-For each scope item in ROADMAP.md, search the codebase for evidence:
+### 3a. Detect Features
+For each feature in the MVP section of ROADMAP.md, search the codebase for evidence:
 
 1. **Routes / Endpoints** — grep for route definitions, API endpoints
-2. **Auth** — look for login, signup, session, JWT, password handling
-3. **Data Models** — look for schema definitions, model files, migrations
-4. **UI Pages / Components** — look for page components, views, screens
-5. **Integrations** — look for third-party service clients (Stripe, email, etc.)
-6. **Config & Ops** — look for deployment configs, env files, health checks
-7. **Tests** — count test files, check for test coverage
+2. **Auth** — look for login, signup, session handling
+3. **Data Models** — look for schema definitions
+4. **UI Pages / Components** — look for page components
+5. **Integrations** — look for third-party service clients
 
 For each feature found, note:
-- **What it is** (1-line description)
-- **Where it lives** (key file paths)
 - **Status:** ✅ Implemented, ⚠️ Partial, ❌ Missing
-
-### 3c. Discover Unplanned Features
-Look for features that exist in the codebase but weren't in the scope. These are either:
-- Organic additions during development (document them)
-- Framework defaults that came for free (note them)
-
-### 3d. GSD Alignment (Engineering Integration)
-If the project uses GSD (presence of `.roadmap.md` or `.planning/`):
-- Scan `.roadmap.md` to identify current engineering goals and upcoming phases.
-- Cross-reference PM `.pm/ROADMAP.md` with GSD engineering phases.
-- Identify any "drift" between what the PM planned (Features) and what Engineering is building (Phases).
-- If a GSD phase is "COMPLETED" or "DELIVERED", ensure the corresponding PM Feature is marked as implemented.
-- Align PM "Next" with the current active GSD phase.
-- Update `.pm/STATE.md` to reflect the current active GSD phase and progress.
 
 ## 4. Update ROADMAP.md
 
-For each "In Scope" item, update with a status indicator:
+Update the status markers in the `## 1. The MVP (v1)` table in `.pm/ROADMAP.md`.
 
-```markdown
-## In Scope (v1)
-- ✅ [Item] — [why it's essential] → Implemented in `src/auth/`
-- ⚠️ [Item] — [why it's essential] → Partially done, missing error handling
-- ❌ [Item] — [why it's essential] → Not started
-```
+Update the **Progress:** line at the top of the file:
+`Progress: [completed]/[total] features complete`
 
-Don't remove any items. Add status markers so the builder can see progress at a glance.
+## 5. Log Learning in PROJECT.md
 
-## 5. Write FEATURES.md
+If any major technical or product learning was discovered during sync, append it to the `## Decisions & Learnings` table in `.pm/PROJECT.md`.
 
-Create or update `.pm/FEATURES.md` using `@~/.claude/ship-pm/templates/features.md`.
-
-This is the **living catalog** of everything the app does. It should answer: "If someone asked me what this app does right now, what would I say?"
-
-Organize by capability area, not by file structure.
-
-## 6. Update STATE.md
-
-Update `.pm/STATE.md` with:
-- Current Feature
-- Features implemented / total
-- Last sync timestamp
-- Scope completion percentage
-
-```markdown
-# PM State
-
-**Feature:** building
-**Created:** [original]
-**Last Synced:** [timestamp]
-**Features Defined:** [count]
-**Features Completed:** [count]
-**Scope Progress:** [implemented]/[total] items ([percentage]%)
-
-## Feature Summary
-- ✅ Implemented: [count]
-- ⚠️ Partial: [count]
-- ❌ Not Started: [count]
-
-## Next Action
-[Recommended action based on state]
-```
-
-## 6b. Architecture Check
-
-If `.pm/ARCHITECTURE.md` does not exist, automatically run the map workflow:
-
-```
-Architecture docs not found. Running /pm:map to document architecture...
-```
-
-Execute `@~/.claude/ship-pm/workflows/map.md` to generate `.pm/ARCHITECTURE.md`.
-
-If `.pm/ARCHITECTURE.md` already exists but the codebase has changed significantly (new services, new integrations detected), suggest:
-
-```
-Architecture may be outdated. Run /pm:map --regen to update.
-```
-
-## 7. Commit Changes
-
-After all `.pm` files have been updated, perform a git commit:
+## 6. Commit Changes
 
 ```bash
 git add .pm/
-git commit -m "pm: sync state with codebase and GSD engineering roadmap"
+git commit -m "pm: sync state with codebase"
 ```
 
-## 8. Done
+## 7. Done
 
 Display summary:
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PM ► SYNC COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- Scope Progress: [N]/[total] items ([%]%)
-
- ✅ Implemented:  [count]
- ⚠️ Partial:      [count]
- ❌ Not Started:   [count]
- 🎁 Unplanned:    [count]
+ MVP Progress: [completed]/[total] features (✅)
 
  Updated:
-   .pm/FEATURES.md  — feature catalog
-   .pm/ROADMAP.md     — scope with status markers
-   .pm/STATE.md     — project state
+   .pm/ROADMAP.md     — feature status markers
+   .pm/PROJECT.md     — any new learnings
 
  Next: [Recommended action]
 ```
-
-Recommendations based on state:
-- If scope items remain → "Run `/pm:next` to queue up the next roadmap Feature"
-- If partial items exist → "Review partial items — some features need finishing via execution agent"
-- If all items done → "Run `/pm:ship-check` to verify launch readiness"
