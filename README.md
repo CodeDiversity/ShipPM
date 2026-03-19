@@ -41,7 +41,6 @@ Verify:
 /pm:review <feature-id>      Review work against acceptance criteria
 /pm:sync                     Sync roadmap state from codebase & GSD phases
 /pm:audit                    Scan codebase for gaps and tech debt
-/pm:retro <feature-id>       Post-feature retrospective
 /pm:ship-check               Run launch readiness audit
 ```
 
@@ -78,11 +77,10 @@ Verify:
 6. **Generate the technical design**: `/pm:brief 1`
 7. **[Execution Layer builds the code using the Brief]**
 8. **Verify the code meets the design**: `/pm:review 1`
-9. **Reflect on what was learned**: `/pm:retro 1`
-10. **Mark the feature complete**: `/pm:sync`
-11. **[Repeat until MVP is complete]**
-12. **Check for gaps or tech debt**: `/pm:audit`
-13. **Audit launch readiness**: `/pm:ship-check`
+9. **Mark the feature complete**: `/pm:sync`
+10. **[Repeat until MVP is complete]**
+11. **Check for gaps or tech debt**: `/pm:audit`
+12. **Audit launch readiness**: `/pm:ship-check`
 
 ## Feature Lifecycle Example
 

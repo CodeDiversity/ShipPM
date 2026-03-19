@@ -27,8 +27,8 @@ Display this help text:
  /pm:review <feature>         Review work against acceptance criteria
  /pm:sync [feature]           Sync feature state from codebase
  /pm:audit                    Scan codebase for gaps and tech debt
- /pm:retro <feature>          Post-feature retrospective
  /pm:ship-check               Run launch readiness audit
+ ```
 
  PRODUCT OWNER DOCS
 
@@ -56,7 +56,7 @@ Display this help text:
  TYPICAL FLOW
 
  /pm:new-project → /pm:refine → /pm:scope → /pm:next-feature → /pm:brief
- → [build with agent] → /pm:sync → /pm:review → /pm:retro
+ → [build with agent] → /pm:sync → /pm:review
  → /pm:next-feature → ... → /pm:discuss → /pm:prioritize → /pm:roadmap
-```
+
 </process>

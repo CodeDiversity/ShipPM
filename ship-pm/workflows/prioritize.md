@@ -26,7 +26,6 @@ Read:
 - `.pm/FEEDBACK.md` — User feedback patterns (if exists)
 - `.pm/SCOPE.md` — Original scope and completion status
 - `.pm/STATE.md` — Current project state
-- `.pm/retros/` — Lessons learned from past features (if exists)
 
 **Load persona:** `@~/.claude/ship-pm/agents/pm-strategist.md`
 **Load prioritization framework:** `@~/.claude/ship-pm/references/prioritization.md`
@@ -94,7 +93,7 @@ Append to `.pm/DECISIONS.md`:
 ## [Date] — Roadmap Re-Prioritized
 **Context:** [What triggered the re-prioritization]
 **Decision:** Re-ordered [N] features. Top priority is now [Feature Name].
-**Rationale:** [Based on user feedback / market shift / retro learnings / builder judgment]
+**Rationale:** [Based on user feedback / market shift / past learnings / builder judgment]
 ```
 
 ## 8. Commit Changes
@@ -118,7 +117,7 @@ git commit -m "pm: re-prioritize roadmap"
  2. [Feature Name] ← [moved up/down/unchanged]
  3. [Feature Name] ← [moved up/down/unchanged]
 
- Signals used: [feedback / retro / builder input]
+ Signals used: [feedback / builder feedback / builder input]
 
  Next: Run /pm:brief [top feature] to start building the new top priority.
 ```

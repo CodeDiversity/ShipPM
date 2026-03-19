@@ -15,7 +15,7 @@ Re-evaluate and re-rank the features in ROADMAP.md based on new signals: user fe
 **Reads:** `.pm/ROADMAP.md`, `.pm/FEEDBACK.md` (if exists), `.pm/SCOPE.md`, `.pm/STATE.md`
 **Updates:** `.pm/ROADMAP.md`, `.pm/DECISIONS.md`
 
-**When to run:** After logging user feedback, after a retro, after a market shift, or whenever priorities feel off.
+**When to run:** After logging user feedback, after a market shift, or whenever priorities feel off.
 </objective>
 
 <execution_context>
